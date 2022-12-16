@@ -10,9 +10,9 @@ Stretch Goals:
 Timed notifications for tasks. 
 Username and password management. 
 
-##Design
+## Design
 
-###Overview
+### Overview
 The project will be written in Java. It will use RecyclerView to generate a dynamic list and Room to create a local database. Will also write tests to evaluate the REST methods below. 
 
 
