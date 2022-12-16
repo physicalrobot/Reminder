@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements CategoryListAdapt
 
         noResulttextView  = findViewById(R.id.noResult);
         recyclerView  = findViewById(R.id.recyclerView);
-        findViewById(R.id.addNewCategoryImageView);
 
         ImageView addNew = findViewById(R.id.addNewCategoryImageView);
 
@@ -121,67 +121,25 @@ public class MainActivity extends AppCompatActivity implements CategoryListAdapt
         dialogBuilder.setView(dialogView);
         dialogBuilder.show();
     }
-//    private void showAddCategoryDialog(boolean isForEdit) {
-//
-//        AlertDialog dialogBuilder = new AlertDialog.Builder(this).create();
-//        View dialogView = getLayoutInflater().inflate(R.layout.add_category_layout, null);
-//        EditText enterCategoryInput = dialogView.findViewById(R.id.enterCategoryInput);
-//        EditText createButton = dialogView.findViewById(R.id.createButton);
-//        EditText cancelButton = dialogView.findViewById(R.id.cancelButton);
-//
-//        if(isForEdit){
-//            createButton.setText("Update");
-//            enterCategoryInput.setText(categoryForEdit.categoryName);
-//        }
-//        cancelButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String name =  enterCategoryInput.getText().toString();
-//                if(TextUtils.isEmpty(name)){
-//                    Toast.makeText(MainActivity.this,"Enter category name", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if(isForEdit){
-//                    categoryForEdit.categoryName = name;
-//                    viewModel.updateCategory(categoryForEdit);
-//
-//                }else{
-//                    viewModel.insertCategory(name);
-//
-//                }
-//
-//                // here we call view model.
-//
-//                viewModel.insertCategory(name);
-//                dialogBuilder.dismiss();
-//            }
-//        });
-//
-//        dialogBuilder.setView(dialogView);
-//        dialogBuilder.show();
-//
-//
-//    }
 
 
     @Override
     public void itemClick(Category category) {
+        Intent intent = new Intent(MainActivity.this, ShowItemsListActivity.class);
+        intent.putExtra("category_id", category.uid);
+        intent.putExtra("category_name", category.categoryName);
 
+        startActivity(intent);
     }
 
     @Override
     public void removeItem(Category category) {
-
         viewModel.deleteCategory(category);
-
     }
 
     @Override
     public void editItem(Category category) {
         this.categoryForEdit = category;
-
         showAddCategoryDialog(true);
-
     }
 }

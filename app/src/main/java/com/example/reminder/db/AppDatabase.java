@@ -6,17 +6,15 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+@Database(entities =  {Category.class, Items.class}, version = 1)
+public abstract class  AppDatabase extends RoomDatabase {
 
+    public abstract  ReminderListDao reminderListDao();
 
-@Database(entities = {Category.class, Items.class}, version = 1)
-public abstract class AppDatabase extends RoomDatabase {
-
-    public abstract ReminderListDao reminderListDao();
     public static AppDatabase INSTANCE;
 
-
     public static AppDatabase getDBinstance(Context context) {
-        if(INSTANCE == null){
+        if(INSTANCE == null ) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "AppDB")
                     .allowMainThreadQueries()
                     .build();
@@ -24,6 +22,5 @@ public abstract class AppDatabase extends RoomDatabase {
         }
 
         return INSTANCE;
-
     }
 }
