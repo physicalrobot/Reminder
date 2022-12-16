@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -32,6 +34,12 @@ public class ShowItemsListActivity extends AppCompatActivity implements ItemsLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_items_list);
+
+
+
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("black"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         category_id = getIntent().getIntExtra("category_id", 0);
         String categoryName = getIntent().getStringExtra("category_name");

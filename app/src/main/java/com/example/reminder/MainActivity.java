@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements CategoryListAdapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("black"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         getSupportActionBar().setTitle("Reminder App");
 
