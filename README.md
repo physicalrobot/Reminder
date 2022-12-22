@@ -17,3 +17,6 @@ The project will be written in Java. It will use RecyclerView to generate a dyna
 
 
 ![Screenshot 2022-12-13 12 29 21 PM](https://user-images.githubusercontent.com/53846309/208178170-3c32f974-34dd-4177-a379-c6770d1ab1e4.png)
+
+
+To learn more about how I made this app, check out my blog post [here](https://physicalrobot.github.io/code_blog/portfolio/reminder/).
